@@ -1,54 +1,118 @@
-# 📱 Desenvolvimento Mobile
+# 💻 Desenvolvimento com TypeScript
 
 ## 📝 Descrição do Projeto/Atividade
-[Descreva brevemente o projeto prático que você escolheu colocar aqui. Ex: "Desenvolvimento de um aplicativo de previsão do tempo em React Native e TypeScript, integrado com a API OpenWeatherMap."]
+
+Este projeto reúne uma série de exercícios desenvolvidos em TypeScript com o objetivo de praticar conceitos fundamentais da linguagem. Foram implementadas atividades envolvendo estruturas de repetição, arrays, interfaces, funções, filtros de dados e manipulação de estados.
+
+Os exercícios incluem:
+
+* Geração da tabuada de um número.
+* Exibição de itens de um inventário.
+* Filtragem de lanches veganos.
+* Filtragem de veículos por valor.
+* Simulação de operações bancárias.
+* Controle de faltas de um aluno.
 
 ---
 
 ## 🧠 Reflexão de Aprendizado
 
 ### 1. O que aprendi?
-[Substitua este texto por sua resposta. Explique em suas palavras os conceitos teóricos e práticos de desenvolvimento mobile que você aprendeu com esta atividade, tais como: componentes, Hooks do React (useState, useEffect), tratamento de estados assíncronos, consumo de APIs, estilização, etc.]
+
+Com esta atividade aprendi conceitos importantes de TypeScript, como:
+
+* Declaração de variáveis com tipagem.
+* Utilização de loops (`for` e `for...of`).
+* Criação e utilização de interfaces.
+* Manipulação de arrays.
+* Uso dos métodos `filter()` e `map()`.
+* Criação de funções tipadas.
+* Controle de estados utilizando variáveis.
+* Organização e reutilização de código.
+
+Além disso, desenvolvi uma melhor compreensão sobre como o TypeScript aumenta a segurança do código por meio da tipagem estática.
 
 ### 2. Para que serve (Por que aprendi)?
-[Substitua este texto por sua resposta. Explique qual a relevância de aprender a desenvolver aplicativos móveis nativos/híbridos com React Native para o mercado de trabalho atual. Qual problema real esta competência resolve no dia a dia corporativo?]
+
+Aprender TypeScript é importante porque ele é amplamente utilizado no desenvolvimento web moderno, especialmente em aplicações React, Angular e Node.js.
+
+Essa tecnologia ajuda a:
+
+* Reduzir erros durante o desenvolvimento.
+* Tornar o código mais organizado.
+* Facilitar a manutenção de sistemas.
+* Melhorar a produtividade da equipe.
+* Criar aplicações mais seguras e confiáveis.
+
+No mercado de trabalho, o TypeScript é uma das linguagens mais requisitadas para desenvolvimento front-end e back-end.
 
 ---
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
-*   React Native / Expo
-*   TypeScript
-*   [Outra biblioteca, ex: Axios, React Navigation, React Native Vector Icons]
+
+* TypeScript
+* Node.js
+* Visual Studio Code
 
 ---
 
 ## 💻 Demonstração e Como Rodar
 
 ### Código Relevante Comentado
-[Insira aqui um trecho de código TypeScript/React Native que foi crucial para o projeto, comentando as linhas mais importantes para demonstrar seu entendimento. Exemplo:]
-```tsx
-// Exemplo de código (substitua pelo seu):
-const fetchWeatherData = async (city: string) => {
-  try {
-    setLoading(true);
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=SUA_API_KEY`);
-    const data = await response.json();
-    setWeather(data);
-  } catch (err) {
-    setError('Não foi possível carregar os dados de clima.');
-  } finally {
-    setLoading(false);
-  }
-};
+
+```typescript
+interface CarroProps {
+  modelo: string;
+  valor: number;
+}
+
+const carros: CarroProps[] = [
+  { modelo: "Onix", valor: 60000 },
+  { modelo: "Civic", valor: 120000 }
+];
+
+// Filtra apenas veículos abaixo de R$ 65.000
+carros
+  .filter((carro) => carro.valor < 65000)
+  .map((carro) =>
+    console.log(`Veículo: ${carro.modelo} - R$ ${carro.valor}`)
+  );
 ```
 
-### Instruções para Executar
-1. Instale as dependências na pasta do projeto:
-   ```bash
-   npm install
-   ```
-2. Inicialize o servidor de desenvolvimento do Expo:
-   ```bash
-   npx expo start
-   ```
-3. Use o aplicativo Expo Go em seu dispositivo móvel ou um emulador Android/iOS para visualizar.
+**Explicação:**
+
+* A interface define a estrutura do objeto.
+* O array armazena vários carros.
+* O método `filter()` seleciona apenas os carros abaixo do valor definido.
+* O método `map()` percorre os resultados exibindo as informações.
+
+---
+
+## 🚀 Instruções para Executar
+
+1. Instale o Node.js.
+2. Instale o TypeScript:
+
+```bash
+npm install -g typescript
+```
+
+3. Compile o arquivo:
+
+```bash
+tsc exercicio1.ts
+```
+
+4. Execute o arquivo gerado:
+
+```bash
+node exercicio1.js
+```
+
+Repita o processo para os demais exercícios.
+
+---
+
+## 📚 Conclusão
+
+A atividade permitiu aplicar na prática os principais conceitos de TypeScript, fortalecendo conhecimentos em programação, lógica computacional e manipulação de dados. Esses fundamentos são essenciais para o desenvolvimento de aplicações modernas e para a evolução profissional na área de Desenvolvimento de Sistemas.
