@@ -1,56 +1,146 @@
 # 🤖 Inteligência Artificial (IA)
 
 ## 📝 Descrição do Projeto/Atividade
-[Descreva brevemente o projeto prático que você escolheu colocar aqui. Ex: "Desenvolvimento de um classificador automático de sentimentos em avaliações de clientes utilizando a API do Google Gemini em Python."]
+
+Este projeto utiliza Inteligência Artificial integrada a APIs externas para automatizar a geração de imagens personalizadas. O sistema realiza o upload de uma imagem para um servidor temporário, envia a URL da imagem para uma API de geração gráfica e, posteriormente, faz o download automático do resultado final.
+
+A aplicação demonstra a integração entre Python, APIs REST e automação de tarefas digitais utilizando recursos modernos amplamente utilizados no mercado.
 
 ---
 
 ## 🧠 Reflexão de Aprendizado
 
 ### 1. O que aprendi?
-[Substitua este texto por sua resposta. Explique em suas palavras os conceitos de IA que você aprendeu com esta atividade, tais como: modelos de linguagem (LLMs), Engenharia de Prompts (Prompt Engineering), consumo de SDKs/APIs de IA, estruturação de dados de resposta (JSON Schema), ou conceitos de Machine Learning.]
+
+Durante esta atividade aprendi conceitos importantes relacionados à Inteligência Artificial e integração de serviços online, como:
+
+* Consumo de APIs REST utilizando Python.
+* Envio e recebimento de dados em formato JSON.
+* Upload automático de arquivos para servidores externos.
+* Manipulação de respostas de APIs.
+* Automação de geração de conteúdo digital.
+* Tratamento de erros em requisições HTTP.
+* Integração entre múltiplos serviços online.
+* Estruturação de aplicações que utilizam recursos de IA.
+
+Além disso, compreendi como sistemas modernos utilizam APIs para automatizar tarefas que antes exigiam intervenção manual.
+
+---
 
 ### 2. Para que serve (Por que aprendi)?
-[Substitua este texto por sua resposta. Explique como a integração de IA pode agregar valor a sistemas de software tradicionais. Quais são os casos de uso práticos no mercado onde a inteligência artificial ajuda a automatizar tarefas complexas?]
+
+A Inteligência Artificial e a automação estão cada vez mais presentes em sistemas empresariais e aplicações web.
+
+Esse conhecimento permite:
+
+* Automatizar processos repetitivos.
+* Gerar conteúdo digital de forma rápida.
+* Integrar sistemas com serviços externos.
+* Criar soluções escaláveis para empresas.
+* Reduzir tempo e custos operacionais.
+* Desenvolver aplicações inovadoras utilizando IA.
+
+No mercado atual, tecnologias semelhantes são utilizadas em geração de imagens, chatbots, análise de dados, marketing digital e automação de processos.
 
 ---
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
-*   Python / Node.js
-*   SDK do Google GenAI (Gemini API) ou OpenAI API
-*   [Outra biblioteca ou ferramenta, ex: python-dotenv, LangChain]
+
+* Python 3
+* Requests
+* APIs REST
+* JSON
+* Catbox API
+* DynaPictures API
+* Visual Studio Code
 
 ---
 
 ## 💻 Demonstração e Como Rodar
 
 ### Código Relevante Comentado
-[Insira aqui o trecho do código que faz a requisição para o modelo de IA e configura o prompt, comentando as partes fundamentais. Exemplo:]
+
 ```python
-# Exemplo de código em Python usando a API do Gemini (substitua pelo seu):
-import google.generativeai as genai
-import os
+import requests
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+url_api = f"https://api.dynapictures.com/designs/{template_id}"
 
-def analisar_sentimento(texto_cliente):
-    prompt = f"Analise o sentimento do seguinte texto. Responda apenas com: POSITIVO, NEGATIVO ou NEUTRO. Texto: {texto_cliente}"
-    response = model.generate_content(prompt)
-    return response.text.strip()
+headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+}
+
+payload = {
+    "format": "png",
+    "params": [
+        {
+            "name": "Title",
+            "text": "Agora a imagem vai carregar!"
+        }
+    ]
+}
+
+response = requests.post(
+    url_api,
+    headers=headers,
+    json=payload
+)
 ```
 
-### Instruções para Executar
-1. Certifique-se de ter o Python (ou Node.js) instalado em sua máquina.
-2. Instale as dependências necessárias:
-   ```bash
-   pip install google-generativeai python-dotenv
-   ```
-3. Crie um arquivo `.env` na raiz da pasta e adicione sua chave de API:
-   ```env
-   GEMINI_API_KEY=sua_chave_aqui
-   ```
-4. Execute o script principal:
-   ```bash
-   python app.py
-   ```
+### Explicação
+
+* `requests.post()` realiza a comunicação com a API.
+* `headers` contém a chave de autenticação.
+* `payload` define os parâmetros enviados.
+* A API processa os dados e retorna a imagem gerada.
+* O sistema realiza o download automático do resultado final.
+
+---
+
+## 🚀 Instruções para Executar
+
+### Instalar dependências
+
+```bash
+pip install requests
+```
+
+### Configurar o projeto
+
+Defina sua chave de API e o Template ID dentro do código:
+
+```python
+api_key = "SUA_API_KEY"
+template_id = "SEU_TEMPLATE_ID"
+```
+
+Adicione a imagem que será utilizada no mesmo diretório do projeto.
+
+---
+
+### Executar o sistema
+
+```bash
+python app.py
+```
+
+---
+
+## 🎯 Resultado Esperado
+
+Ao executar o programa:
+
+1. A imagem será enviada para um servidor temporário.
+2. A URL gerada será enviada para a API.
+3. A API criará automaticamente uma nova imagem personalizada.
+4. O arquivo final será baixado e salvo como:
+
+```text
+resultado.png
+```
+
+---
+
+## ✅ Conclusão
+
+Esta atividade permitiu compreender na prática como aplicações modernas utilizam APIs e recursos de Inteligência Artificial para automatizar tarefas. O projeto demonstrou conceitos importantes de integração de sistemas, processamento de dados e geração automática de conteúdo digital, habilidades cada vez mais valorizadas no mercado de tecnologia.
